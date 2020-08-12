@@ -84,9 +84,6 @@ build-bootstrap:
 
 
 bootstrap: ${BOOTSTRAP_DEPS}
-	@echo "LIBCVERFLAGS=${LIBCVERFLAGS}"
-	@echo "OBJ_BPREFIX=${OBJ_BPREFIX}"
-	exit
 	mkdir -p "${OBJ_BPREFIX}/bin"
 	@echo "===> bootstrapping trans into ${OBJ_BPREFIX}"
 	cd ${.CURDIR}/trans && ${MAKE}      \
@@ -161,6 +158,7 @@ bootstrap-test: ${OBJ_BPREFIX}/bin/tcc
 bootstrap-rebuild:
 	mkdir -p "${OBJ_RPREFIX}/bin"
 	@echo "===> rebuilding with bootstrap for trans from ${OBJ_BOOT} into ${OBJ_REBUILD}"
+	exit
 	cd ${.CURDIR}/trans && ${MAKE}      \
 	    OBJ_DIR=${OBJ_REBOOT}/trans     \
 	    TCC=${OBJ_BPREFIX}/bin/tcc      \
