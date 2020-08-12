@@ -37,6 +37,11 @@ TARGETARCH?=
 TARGETFLAGS+= BLDARCH=${TARGETARCH}
 .endif
 
+LIBCVERFLAGS?=
+.if !empty(LIBCVER)
+LIBCVERFLAGS+= LIBCVER=${LIBCVER}
+.endif
+
 # XXX: assumes GNU ld
 REBUILDFLAGS!=                            \
     case "${TARGETARCH}" in               \
@@ -159,6 +164,7 @@ bootstrap-rebuild:
 	    PREFIX=${OBJ_RPREFIX}           \
 	    RELEASE=${RELEASE}              \
 	    ${TARGETFLAGS}                  \
+		${LIBCVERFLAGS}                 \
 	    ${REBUILDFLAGS}                 \
 	    install
 .for project in tld tspec tpl tnc tdfc2 sid lexi make_tdf make_err calculus disp libexds
@@ -168,6 +174,7 @@ bootstrap-rebuild:
 	    PREFIX=${OBJ_RPREFIX}             \
 	    TCC=${OBJ_BPREFIX}/bin/tcc        \
 	    RELEASE=${RELEASE}                \
+		${LIBCVERFLAGS}                   \
 	    ${REBUILDFLAGS}                   \
 	    install
 .endfor
@@ -187,6 +194,7 @@ bootstrap-rebuild:
 	    PREFIX=${OBJ_RPREFIX}         \
 	    RELEASE=${RELEASE}            \
 	    ${TARGETFLAGS}                \
+		${LIBCVERFLAGS}               \
 	    ${REBUILDFLAGS}               \
 	    install
 	@echo "===> rebuilding with bootstrap for osdep from ${OBJ_BOOT} into ${OBJ_REBUILD}"
@@ -199,6 +207,7 @@ bootstrap-rebuild:
 	    TLD=${OBJ_RPREFIX}/bin/tld    \
 	    RELEASE=${RELEASE}            \
 	    ${TARGETFLAGS}                \
+		${LIBCVERFLAGS}               \
 	    ${REBUILDFLAGS}               \
 	    install
 	@echo "===> rebuilding with bootstrap for tdf from ${OBJ_BOOT} into ${OBJ_REBUILD}"
@@ -209,6 +218,7 @@ bootstrap-rebuild:
 	    TPL=${OBJ_RPREFIX}/bin/tpl    \
 	    TLD=${OBJ_RPREFIX}/bin/tld    \
 	    RELEASE=${RELEASE}            \
+		${LIBCVERFLAGS}               \
 	    ${REBUILDFLAGS}               \
 	    install
 
