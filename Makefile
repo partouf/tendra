@@ -210,17 +210,17 @@ bootstrap-rebuild:
 		${LIBCVERFLAGS}               \
 	    ${REBUILDFLAGS}               \
 	    install
-	@echo "===> rebuilding with bootstrap for tdf from ${OBJ_BOOT} into ${OBJ_REBUILD}"
-	cd ${.CURDIR}/tdf && ${MAKE}      \
-	    OBJ_DIR=${OBJ_REBOOT}/tdf     \
-	    PREFIX=${OBJ_RPREFIX}         \
-	    TCC=${OBJ_RPREFIX}/bin/tcc    \
-	    TPL=${OBJ_RPREFIX}/bin/tpl    \
-	    TLD=${OBJ_RPREFIX}/bin/tld    \
-	    RELEASE=${RELEASE}            \
-		${LIBCVERFLAGS}               \
-	    ${REBUILDFLAGS}               \
-	    install
+	# @echo "===> rebuilding with bootstrap for tdf from ${OBJ_BOOT} into ${OBJ_REBUILD}"
+	# cd ${.CURDIR}/tdf && ${MAKE}      \
+	#     OBJ_DIR=${OBJ_REBOOT}/tdf     \
+	#     PREFIX=${OBJ_RPREFIX}         \
+	#     TCC=${OBJ_RPREFIX}/bin/tcc    \
+	#     TPL=${OBJ_RPREFIX}/bin/tpl    \
+	#     TLD=${OBJ_RPREFIX}/bin/tld    \
+	#     RELEASE=${RELEASE}            \
+	# 	${LIBCVERFLAGS}               \
+	#     ${REBUILDFLAGS}               \
+	#     install
 
 bootstrap-regen:
 	@echo "===> bootstrapping into ${OBJ_REGEN} for source regeneration"
