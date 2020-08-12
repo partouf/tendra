@@ -84,6 +84,9 @@ build-bootstrap:
 
 
 bootstrap: ${BOOTSTRAP_DEPS}
+	@echo "LIBCVERFLAGS=${LIBCVERFLAGS}"
+	@echo "OBJ_BPREFIX=${OBJ_BPREFIX}"
+	exit
 	mkdir -p "${OBJ_BPREFIX}/bin"
 	@echo "===> bootstrapping trans into ${OBJ_BPREFIX}"
 	cd ${.CURDIR}/trans && ${MAKE}      \
